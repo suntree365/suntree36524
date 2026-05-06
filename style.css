@@ -311,35 +311,27 @@ footer { background-color: var(--footer-bg); padding: 60px 0 40px 0; color: var(
     .philosophy-text strong { font-size: 5.8vw !important; line-height: 1.4 !important; }
     .philosophy-text > div { text-align: center !important; font-size: 4vw !important; line-height: 1.8; padding: 0 3vw; margin-top: 8vw !important; word-break: keep-all; }
     
-/* 🚨 1. 이미지 크기 완벽 통일 및 🚨 */
-    /* 🚨 2. 아래쪽 AI 워터마크(표식) 안 보이게 잘라내기 🚨 */
-    .img-box.style-1, .img-box.style-2 { 
-        width: 100% !important; 
-        aspect-ratio: 4 / 3 !important; /* 모든 사진을 똑같은 4:3 직사각형 액자로 통일 */
-        overflow: hidden !important; /* 액자 밖으로 삐져나간 사진(마크 부분)을 안 보이게 숨김 */
-        border-radius: 4vw !important; /* 깔끔한 둥근 테두리 */
+/* 🚨 이미지 원본 비율 그대로 100% 다 보이게 설정 (잘림 없음) 🚨 */
+    .img-box, .style-1, .style-2 {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: auto !important; /* 박스의 고정 비율 해제 */
     }
 
-.img-box.style-1 img, .img-box.style-2 img { 
+    .img-box img, .style-1 img, .style-2 img { 
         width: 100% !important; 
-        height: 100% !important; /* 자르는 양을 12% -> 8%로 줄여서 덜 잘리게 조정 */
-        aspect-ratio: auto !important; 
-        object-fit: cover !important; 
-        object-position: center 10% !important; /* 👈 핵심: 위쪽에서 10% 지점을 기준으로 정렬 (얼굴 위주) */
-        border-radius: 4vw !important;
+        height: auto !important; /* 세로 길이를 원본 사진에 맞게 자동으로 늘리거나 줄임 */
+        aspect-ratio: auto !important; /* 억지로 맞춘 4:3 비율 완전 해제 */
+        object-fit: contain !important; /* 사진의 어느 한 곳도 잘리지 않고 온전히 다 나오게 함 */
+        border-radius: 4vw !important; /* PC 버전의 기괴하게 파인 모서리를 덮어쓰고 깔끔한 사각형 유지 */
+        display: block !important;
     }
 
-    /* 오시는 길 지도는 위 설정에 영향받지 않도록 보호 */
+    /* 오시는 길 지도는 기존처럼 넓고 보기 좋게 유지 */
     .custom-map-wrap { 
         width: 100% !important; 
         height: auto !important; 
         aspect-ratio: 4 / 3 !important; 
-        border-radius: 4vw !important;
-    }
-    .custom-map-wrap img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
     }
 
     /* 모바일 구조 설정 유지 */
