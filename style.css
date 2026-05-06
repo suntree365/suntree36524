@@ -320,13 +320,13 @@ footer { background-color: var(--footer-bg); padding: 60px 0 40px 0; color: var(
         border-radius: 4vw !important; /* 깔끔한 둥근 테두리 */
     }
 
-    .img-box.style-1 img, .img-box.style-2 img { 
+.img-box.style-1 img, .img-box.style-2 img { 
         width: 100% !important; 
-        height: 112% !important; /* 👈 핵심! 사진 길이를 12% 더 늘려서 제미나이 마크를 액자 밑으로 밀어냄 */
+        height: 108% !important; /* 자르는 양을 12% -> 8%로 줄여서 덜 잘리게 조정 */
         aspect-ratio: auto !important; 
-        object-fit: cover !important; /* 사진이 액자에 빈틈없이 꽉 차게 */
-        object-position: center top !important; /* 자르더라도 윗부분(얼굴)은 잘리지 않고 안전하게 유지 */
-        border-radius: 0 !important; 
+        object-fit: cover !important; 
+        object-position: center 10% !important; /* 👈 핵심: 위쪽에서 10% 지점을 기준으로 정렬 (얼굴 위주) */
+        border-radius: 4vw !important;
     }
 
     /* 오시는 길 지도는 위 설정에 영향받지 않도록 보호 */
