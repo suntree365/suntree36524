@@ -322,10 +322,10 @@ footer { background-color: var(--footer-bg); padding: 60px 0 40px 0; color: var(
 
 .img-box.style-1 img, .img-box.style-2 img { 
         width: 100% !important; 
-        height: 108% !important; /* 자르는 양을 12% -> 8%로 줄여서 덜 잘리게 조정 */
+        height: 100% !important; /* 길이를 112%에서 100%로 복구 */
         aspect-ratio: auto !important; 
-        object-fit: cover !important; 
-        object-position: center 10% !important; /* 👈 핵심: 위쪽에서 10% 지점을 기준으로 정렬 (얼굴 위주) */
+        object-fit: contain !important; /* 👈 핵심: 축소해서 액자에 맞춤 */
+        background-color: var(--section-bg) !important; /* 빈 공간을 배경색으로 채움 */
         border-radius: 4vw !important;
     }
 
