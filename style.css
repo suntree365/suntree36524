@@ -281,12 +281,19 @@ footer { background-color: #0a0a0a; padding: 60px 0 40px 0; color: #888888; font
     .philosophy-text strong { font-size: 5.8vw !important; line-height: 1.4 !important; }
     .philosophy-text > div { text-align: center !important; font-size: 4vw !important; line-height: 1.8; padding: 0 3vw; margin-top: 8vw !important; word-break: keep-all; }
     
-    /* 이미지 및 지도 비율 고정 */
-    .img-box img, .custom-map-wrap { 
+/* 이미지 및 지도 설정 분리 (사진 잘림 및 모서리 깨짐 완벽 해결) */
+    .img-box img { 
         width: 100% !important; 
         height: auto !important; 
-        aspect-ratio: 4 / 3 !important; 
-        object-fit: cover !important; 
+        aspect-ratio: auto !important; /* 억지로 맞춘 4:3 비율 해제 (원본 비율 유지) */
+        object-fit: contain !important; /* 이미지가 잘리지 않고 안전하게 쏙 들어가게 */
+        border-radius: 4vw !important; /* PC 버전의 기괴한 모서리를 무시하고 깔끔한 둥근 사각형으로 덮어쓰기 */
+    }
+
+    .custom-map-wrap { 
+        width: 100% !important; 
+        height: auto !important; 
+        aspect-ratio: 4 / 3 !important; /* 지도는 기존처럼 넓게 유지 */
     }
 
     /* 모바일 구조 설정 유지 */
