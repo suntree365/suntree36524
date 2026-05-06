@@ -1,5 +1,5 @@
 /* ========================================================= */
-/* 1. 기본 설정 및 폰트 */
+/* 1. 기본 설정, 폰트 & 색상 변수 (PC: Light Mode 기본값) */
 /* ========================================================= */
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
@@ -10,14 +10,26 @@
 }
 
 :root { 
+    /* 불변 포인트 컬러 */
     --main-orange: #e68a00;  
     --dark-orange: #cc7a00;  
-    --main-text: #e0e0e0;     /* 텍스트를 밝은 회색으로 */
-    --sub-text: #aaaaaa;      /* 서브 텍스트를 중간 회색으로 */
-    --bg-color: #121212;      /* 전체 배경을 다크 모드로 */
-    --section-bg: #1e1e1e;    /* 박스 및 섹션 배경을 다크 그레이로 */
-    --bright-orange: #ffb03b; /* 어두운 배경에서 오렌지색이 더 잘 보이도록 밝기 조절 */
-    --border-color: #333333;  /* 테두리 색상을 어두운 색으로 교체 */
+    --bright-orange: #e68a00;
+
+    /* PC (Web) - 라이트 모드 컬러 */
+    --main-text: #222222;
+    --sub-text: #666666;
+    --bg-color: #ffffff;
+    --section-bg: #f8f9fa;
+    --border-color: #eaeaea;
+    
+    /* 요소별 배경색 */
+    --header-bg: rgba(255, 255, 255, 0.95);
+    --footer-bg: #e9ecef;
+    --footer-text: #555555;
+    --box-bg: #ffffff;
+    --table-th-bg: #f1f3f5;
+    --note-bg: #f1f3f5;
+    --img-bg: #f4f5f7;
 }
 
 * { box-sizing: border-box; }
@@ -42,7 +54,7 @@ html { touch-action: manipulation; }
 /* ========================================================= */
 /* 2. 공통 헤더 */
 /* ========================================================= */
-header { display: flex; justify-content: space-between; align-items: center; padding: 0 60px; background-color: rgba(18, 18, 18, 0.95); border-bottom: 1px solid var(--border-color); position: fixed; top: 0; width: 100%; z-index: 999; height: 90px; backdrop-filter: blur(5px); }
+header { display: flex; justify-content: space-between; align-items: center; padding: 0 60px; background-color: var(--header-bg); border-bottom: 1px solid var(--border-color); position: fixed; top: 0; width: 100%; z-index: 999; height: 90px; backdrop-filter: blur(5px); transition: background-color 0.3s; }
 .logo-area { display: flex; align-items: center; gap: 12px; font-size: 28px; color: var(--main-text); text-decoration: none; font-family: 'GangwonEdu_OTFBoldA', sans-serif; }
 .logo-area img { height: 65px; transform: translateY(-4px); }
 
@@ -113,7 +125,7 @@ header { display: flex; justify-content: space-between; align-items: center; pad
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
     border: 1px solid var(--border-color); 
-    background-color: var(--section-bg);
+    background-color: var(--box-bg);
     width: 100%;
 }
 
@@ -161,19 +173,19 @@ header { display: flex; justify-content: space-between; align-items: center; pad
 .text-box p { font-size: 18px; color: var(--sub-text); line-height: 1.7; margin-bottom: 20px; word-break: keep-all; }
 
 .img-box { flex: 1; position: relative; }
-.img-box img { width: 100%; height: 500px; object-fit: cover; box-shadow: 0 20px 40px rgba(0,0,0,0.5); transition: 0.5s ease; border-radius: 12px;}
+.img-box img { width: 100%; height: 500px; object-fit: cover; box-shadow: 0 20px 40px rgba(0,0,0,0.1); transition: 0.5s ease; border-radius: 12px;}
 .style-1 img { border-radius: 150px 20px 20px 20px; } 
 .style-2 img { border-radius: 20px 150px 20px 20px; } 
 
-.philosophy-box { background-color: var(--section-bg); padding: 70px 60px; border-radius: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.5); text-align: center; }
+.philosophy-box { background-color: var(--box-bg); padding: 70px 60px; border-radius: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); text-align: center; }
 .quote-top, .quote-bottom { font-size: 60px; color: var(--main-orange); line-height: 0.8; display: block; font-family: Georgia, serif; }
 .quote-top { margin-bottom: 5px; } .quote-bottom { margin-top: 40px; margin-bottom: 30px; } 
 .philosophy-text { font-size: 19px; color: var(--sub-text); line-height: 1.9; word-break: keep-all; display: flex; flex-direction: column; align-items: center;}
 .philosophy-text strong { color: var(--main-text); font-weight: 800; font-size: 30px; display: block; margin-bottom: 0px; line-height: 1.4; letter-spacing: -1px;} 
 
-.doctor-profile { display: flex; gap: 50px; background-color: var(--section-bg); padding: 50px; border-radius: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.5); margin-bottom: 30px; align-items: center; transition: 0.3s; }
+.doctor-profile { display: flex; gap: 50px; background-color: var(--box-bg); padding: 50px; border-radius: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); margin-bottom: 30px; align-items: center; transition: 0.3s; }
 .doctor-img-box { width: 300px; flex-shrink: 0; }
-.doctor-img-box img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 20px; background-color: #2a2a2a; }
+.doctor-img-box img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 20px; background-color: var(--img-bg); }
 .doctor-info { flex: 1; }
 .doctor-title-badge { display: inline-block; padding: 6px 16px; background-color: rgba(230, 138, 0, 0.1); color: var(--main-orange); border-radius: 20px; font-size: 14px; font-weight: 700; margin-bottom: 15px; }
 .doctor-name { font-size: 32px; font-weight: 800; color: var(--main-text); margin: 0 0 20px 0; letter-spacing: -1px; }
@@ -185,17 +197,17 @@ header { display: flex; justify-content: space-between; align-items: center; pad
 /* ========================================================= */
 /* 7. 진료안내 표 / 오시는 길 / 주차안내 */
 /* ========================================================= */
-table { width: 100%; max-width: 900px; margin: 0 auto; border-collapse: collapse; text-align: center; margin-bottom: 25px; background-color: var(--section-bg); box-shadow: 0 5px 15px rgba(0,0,0,0.5);}
+table { width: 100%; max-width: 900px; margin: 0 auto; border-collapse: collapse; text-align: center; margin-bottom: 25px; background-color: var(--box-bg); box-shadow: 0 5px 15px rgba(0,0,0,0.05);}
 th, td { border-bottom: 1px solid var(--border-color); padding: 22px 10px; font-size: 17px; } 
-th { background-color: #2a2a2a; font-weight: 800; color: var(--main-text); border-top: 2px solid var(--main-orange); border-bottom: 1px solid var(--border-color);}
+th { background-color: var(--table-th-bg); font-weight: 800; color: var(--main-text); border-top: 2px solid var(--main-orange); border-bottom: 1px solid var(--border-color);}
 td { color: var(--sub-text); }
 .highlight { color: var(--main-orange); font-weight: 700; }
-.note { width: 100%; max-width: 900px; margin: 0 auto; font-size: 16px; color: var(--sub-text); text-align: left; line-height: 1.8; background-color: #2a2a2a; padding: 20px; border-radius: 12px; }
+.note { width: 100%; max-width: 900px; margin: 0 auto; font-size: 16px; color: var(--sub-text); text-align: left; line-height: 1.8; background-color: var(--note-bg); padding: 20px; border-radius: 12px; }
 
-.custom-map-wrap { position: relative; width: 100%; height: 380px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.3); cursor: pointer; }
+.custom-map-wrap { position: relative; width: 100%; height: 380px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); cursor: pointer; }
 .custom-map-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
 .custom-map-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.1); display: flex; justify-content: center; align-items: center; opacity: 1; }
-.custom-map-overlay span { transition: transform 0.3s ease; }
+.custom-map-overlay span { background-color: var(--main-orange); color: #fff; padding: 14px 28px; border-radius: 30px; font-weight: 800; font-size: 17px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: transform 0.3s ease; }
 .custom-map-wrap:hover .custom-map-overlay span { transform: scale(1.05); }
 
 .info-title { font-size: 26px; font-weight: 800; margin-bottom: 25px; color: var(--main-text); letter-spacing: -0.5px; }
@@ -203,51 +215,69 @@ td { color: var(--sub-text); }
 .info-label { width: 80px; font-size: 16px; font-weight: 700; color: var(--main-orange); flex-shrink: 0; }
 .info-value { font-size: 17px; color: var(--sub-text); line-height: 1.6; }
 
-.parking-card { flex: 1; background-color: var(--section-bg); border-radius: 20px; padding: 40px; border-top: 6px solid var(--main-orange); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.parking-card { flex: 1; background-color: var(--box-bg); border-radius: 20px; padding: 40px; border-top: 6px solid var(--main-orange); box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
 .parking-card h4 { font-size: 22px; font-weight: 800; color: var(--main-text); margin: 0 0 15px 0; display: flex; align-items: center; gap: 8px; }
 .parking-card p { font-size: 16px; color: var(--sub-text); line-height: 1.7; margin: 0; }
 .parking-card strong { color: var(--main-orange); display: block; margin-bottom: 10px; font-size: 17px; }
 
-.schedule-table { width: 100%; min-width: 600px; border-collapse: collapse; text-align: center; background-color: var(--section-bg); box-shadow: 0 5px 15px rgba(0,0,0,0.5); border-radius: 12px; overflow: hidden; border-style: hidden; }
-.schedule-table th { background-color: #2a2a2a; border-top: 2px solid var(--main-orange); padding: 15px 5px; font-size: 16px; color: var(--main-text); border-bottom: 1px solid var(--border-color); }
+.schedule-table { width: 100%; min-width: 600px; border-collapse: collapse; text-align: center; background-color: var(--box-bg); box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-radius: 12px; overflow: hidden; border-style: hidden; }
+.schedule-table th { background-color: var(--table-th-bg); border-top: 2px solid var(--main-orange); padding: 15px 5px; font-size: 16px; color: var(--main-text); border-bottom: 1px solid var(--border-color); }
 .schedule-table td { padding: 18px 5px; font-size: 16px; border-bottom: 1px solid var(--border-color); color: var(--main-text); }
 
 /* ========================================================= */
 /* 8. 플로팅 버튼들 */
 /* ========================================================= */
-.naver-floating { position: fixed; right: 40px; bottom: 110px; font-weight: 800; font-size: 16px; padding: 15px 0; width: 180px; border-radius: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; z-index: 9999; transition: all 0.3s ease; background-color: #03C75A; color: #fff; }
-.naver-floating:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
+.naver-floating { position: fixed; right: 40px; bottom: 110px; font-weight: 800; font-size: 16px; padding: 15px 0; width: 180px; border-radius: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; z-index: 9999; transition: all 0.3s ease; background-color: #03C75A; color: #fff; }
+.naver-floating:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.25); }
 
-.phone-floating { position: fixed; right: 40px; bottom: 40px; font-weight: 800; font-size: 16px; padding: 15px 0; width: 180px; border-radius: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; z-index: 9999; transition: all 0.3s ease; background-color: var(--main-orange); color: #fff; }
-.phone-floating:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.5); background-color: var(--dark-orange); }
+.phone-floating { position: fixed; right: 40px; bottom: 40px; font-weight: 800; font-size: 16px; padding: 15px 0; width: 180px; border-radius: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; z-index: 9999; transition: all 0.3s ease; background-color: var(--main-orange); color: #fff; }
+.phone-floating:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.25); background-color: var(--dark-orange); }
 
-.top-btn { position: fixed; right: 40px; bottom: 180px; width: 50px; height: 50px; background-color: var(--section-bg); color: var(--sub-text); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.3); text-decoration: none; z-index: 9998; border: 1px solid var(--border-color); opacity: 0; visibility: hidden; transition: all 0.3s ease; }
-.top-btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); color: var(--main-orange); border-color: var(--main-orange); }
+.top-btn { position: fixed; right: 40px; bottom: 180px; width: 50px; height: 50px; background-color: var(--box-bg); color: var(--sub-text); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-decoration: none; z-index: 9998; border: 1px solid var(--border-color); opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+.top-btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); color: var(--main-orange); border-color: var(--main-orange); }
 
 /* ========================================================= */
 /* 9. 푸터 */
 /* ========================================================= */
-footer { background-color: #0a0a0a; padding: 60px 0 40px 0; color: #888888; font-size: 14px; border-top: 1px solid var(--border-color); width: 100%; overflow: hidden; }
+footer { background-color: var(--footer-bg); padding: 60px 0 40px 0; color: var(--footer-text); font-size: 14px; border-top: 1px solid var(--border-color); width: 100%; overflow: hidden; }
 .footer-container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 .footer-top img { height: 35px !important; max-height: 35px !important; width: auto !important; object-fit: contain; display: block; }
 .footer-top span { font-family: 'GangwonEdu_OTFBoldA'; font-size: 24px; color: var(--main-text); }
 .footer-info { line-height: 2.2; margin-bottom: 25px; margin-top: 25px;}
 .info-row-1, .info-row-2 { display: flex; flex-wrap: wrap; align-items: center; gap: 0 15px; }
 .footer-info span { white-space: nowrap; }
-.info-divider { color: #555555; font-weight: 300; font-size: 12px; margin: 0 5px; }
-.footer-bottom { border-top: 1px solid var(--border-color); padding-top: 20px; font-size: 13px; color: #777777; margin-top: 20px; }
+.info-divider { color: var(--sub-text); font-weight: 300; font-size: 12px; margin: 0 5px; opacity: 0.5; }
+.footer-bottom { border-top: 1px solid var(--border-color); padding-top: 20px; font-size: 13px; color: var(--sub-text); margin-top: 20px; opacity: 0.7; }
 
-.price-link { font-size: 15px; font-weight: 800; color: var(--main-text); text-decoration: none; transition: 0.3s; background-color: #333333; padding: 8px 15px; border-radius: 8px; }
+.price-link { font-size: 15px; font-weight: 800; color: var(--main-text); text-decoration: none; transition: 0.3s; background-color: var(--border-color); padding: 8px 15px; border-radius: 8px; }
 .price-link:hover { color: #fff; background-color: var(--main-orange); }
-.price-table { width: 100%; max-width: 900px; margin: 0 auto; border-collapse: collapse; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
-.price-table th { background-color: #2a2a2a; color: #ffffff; padding: 16px; font-weight: 700; border: 1px solid var(--border-color); font-size: 17px; }
-.price-table td { padding: 16px; border: 1px solid var(--border-color); color: var(--main-text); line-height: 1.5; vertical-align: middle; font-size: 16px; background-color: var(--section-bg); }
-.price-table tr:hover td { background-color: #2a2a2a; }
+.price-table { width: 100%; max-width: 900px; margin: 0 auto; border-collapse: collapse; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.price-table th { background-color: var(--table-th-bg); color: var(--main-text); padding: 16px; font-weight: 700; border: 1px solid var(--border-color); font-size: 17px; }
+.price-table td { padding: 16px; border: 1px solid var(--border-color); color: var(--main-text); line-height: 1.5; vertical-align: middle; font-size: 16px; background-color: var(--box-bg); }
+.price-table tr:hover td { background-color: var(--section-bg); }
 
 /* ========================================================= */
-/* 10. 모바일 반응형 완벽 최적화 (모든 기기 통일 버전) */
+/* 10. 모바일 반응형 완벽 최적화 (모바일만 다크모드로 자동 전환) */
 /* ========================================================= */
 @media screen and (max-width: 768px) {
+    /* 🚨 모바일 진입 시 색상을 강제로 다크 모드로 덮어씌움 🚨 */
+    :root { 
+        --main-text: #e0e0e0;
+        --sub-text: #aaaaaa;
+        --bg-color: #121212;
+        --section-bg: #1e1e1e;
+        --border-color: #333333;
+        --bright-orange: #ffb03b;
+        
+        --header-bg: rgba(18, 18, 18, 0.95);
+        --footer-bg: #0a0a0a;
+        --footer-text: #888888;
+        --box-bg: #1e1e1e;
+        --table-th-bg: #2a2a2a;
+        --note-bg: #2a2a2a;
+        --img-bg: #2a2a2a;
+    }
+
     /* 기본 텍스트 크기 통일 (화면 너비의 4% 크기로 고정) */
     body, p, td, li, .info-value, .parking-card p, .note { 
         font-size: 4vw !important; 
@@ -281,13 +311,13 @@ footer { background-color: #0a0a0a; padding: 60px 0 40px 0; color: #888888; font
     .philosophy-text strong { font-size: 5.8vw !important; line-height: 1.4 !important; }
     .philosophy-text > div { text-align: center !important; font-size: 4vw !important; line-height: 1.8; padding: 0 3vw; margin-top: 8vw !important; word-break: keep-all; }
     
-/* 이미지 및 지도 설정 분리 (사진 잘림 및 모서리 깨짐 완벽 해결) */
-    .img-box img { 
+    /* 🚨 이미지 및 지도 비율 분리 설정 (PC 고집을 끊고 완벽한 둥근 사각형으로) 🚨 */
+    .img-box img, .style-1 img, .style-2 img { 
         width: 100% !important; 
         height: auto !important; 
-        aspect-ratio: auto !important; /* 억지로 맞춘 4:3 비율 해제 (원본 비율 유지) */
-        object-fit: contain !important; /* 이미지가 잘리지 않고 안전하게 쏙 들어가게 */
-        border-radius: 4vw !important; /* PC 버전의 기괴한 모서리를 무시하고 깔끔한 둥근 사각형으로 덮어쓰기 */
+        aspect-ratio: auto !important; /* 억지로 맞춘 비율 해제 (원본 비율 유지) */
+        object-fit: contain !important; /* 이미지가 잘리지 않게 안전 영역 확보 */
+        border-radius: 4vw !important; /* PC 버전의 기괴한 모서리를 무시하고 깔끔한 사각형으로 강제 덮어쓰기 */
     }
 
     .custom-map-wrap { 
@@ -330,9 +360,9 @@ footer { background-color: #0a0a0a; padding: 60px 0 40px 0; color: #888888; font
     
     .note { padding: 4vw; word-break: keep-all; }
     
-    .info-row { flex-direction: column; align-items: flex-start; gap: 2vw; background-color: #2a2a2a; padding: 4vw 5vw; border-radius: 12px; margin-bottom: 3vw; justify-content: center; }
+    .info-row { flex-direction: column; align-items: flex-start; gap: 2vw; padding: 4vw 5vw; border-radius: 12px; margin-bottom: 3vw; justify-content: center; }
     .info-label { width: auto; font-size: 3.5vw; border-bottom: 2px solid var(--main-orange); padding-bottom: 1vw; }
-    .info-value { text-align: left; color: var(--main-text); }
+    .info-value { text-align: left; }
     
     .parking-card { padding: 6vw 5vw; text-align: left; }
     .parking-card h4 { justify-content: flex-start; }
