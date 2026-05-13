@@ -375,10 +375,10 @@ footer { background-color: var(--footer-bg); padding: 60px 0 40px 0; color: var(
     .parking-card { padding: 6vw 5vw; text-align: left; }
     .parking-card h4 { justify-content: flex-start; }
 
-    /* 아이폰 하단바(노치) 침범 완벽 방지 */
-    .naver-floating { bottom: calc(85px + env(safe-area-inset-bottom)) !important; right: 20px !important; width: 150px !important; padding: 12px 0 !important; font-size: 15px !important; }
+/* 아이폰 하단바(노치) 침범 완벽 방지 및 버튼 간격 넉넉하게 띄우기 */
     .phone-floating { bottom: calc(30px + env(safe-area-inset-bottom)) !important; right: 20px !important; width: 150px !important; padding: 12px 0 !important; font-size: 15px !important; }
-    .top-btn { right: 20px !important; bottom: calc(140px + env(safe-area-inset-bottom)) !important; width: 45px !important; height: 45px !important; font-size: 20px !important; }
+    .naver-floating { bottom: calc(95px + env(safe-area-inset-bottom)) !important; right: 20px !important; width: 150px !important; padding: 12px 0 !important; font-size: 15px !important; }
+    .top-btn { right: 20px !important; bottom: calc(160px + env(safe-area-inset-bottom)) !important; width: 45px !important; height: 45px !important; font-size: 20px !important; }
 
     /* 모바일 푸터 */
     footer { padding: 8vw 5vw; text-align: left; }
