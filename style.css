@@ -393,4 +393,11 @@ footer { background-color: var(--footer-bg); padding: 60px 0 40px 0; color: var(
     
     .pc-br { display: none; } 
     .mo-br { display: block; } 
+
+    
+/* 모바일에서 진료과목 타이틀과 내용 완전히 숨기기 */
+    #intro + .page-header, 
+    #subjects-summary {
+        display: none !important;
+    }
 }
